@@ -1,0 +1,23 @@
+<!-- Example: public/api_interaction.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meteor API Interaction</title>
+</head>
+<body>
+  <button id="apiButton">Click to Call API</button>
+  <div id="responseArea"></div>
+
+  <script>
+    document.getElementById('apiButton').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/hello'); // Replace with your API endpoint URL
+        const data = await response.text();
+        document.getElementById('responseArea').innerText = data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  </script>
+</body>
+</html>
